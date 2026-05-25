@@ -37,8 +37,8 @@
 
 <!--====================================================== Section 1 ====================================================-->
                 <div class="room-info">
-                    <h1>...</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
-                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">...</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
+                    <h1>Gerbang Depan</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Gerbang Depan Sekolah</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
                 </div>
 <!--_____________________________________________________________________________________________________________________-->
 
@@ -56,7 +56,7 @@
                     
                     'Tentang Tour', 
                     
-                    'Selamat datang di Virtual Tour. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah. Selamat datang di Virtual Tour. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah.'
+                    'Selamat datang di Virtual Tour SMK/SMTI Pontianak. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah.'
                     
                     )">
                 <i style="font-style: normal;">i</i>
@@ -75,7 +75,7 @@
             <div class="minimap-close" id="minimap-close" onclick="minimizeMap(event)">×</div>
             <div class="minimap-content">
                 <!-- Ganti src dengan referensi gambar peta yang sesuai dari folder assets/map -->
-                <img src="./assets/map/map.jpeg" alt="Minimap" onclick="maximizeMap(event)">
+                <img src="./assets/map/001depan gerbang.png" alt="Minimap" onclick="maximizeMap(event)">
             </div>
         </div>
 <!--_____________________________________________________________________________________________________________________-->
@@ -87,7 +87,7 @@
 <!--====================================================== Section 3 ====================================================-->
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/1_TitikSatu.JPG">
+            <img id="bg" src="./assets/panoramas/2_TitikDua.JPG">
             <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
             <img id="arrow" src="./assets/ui/arrow.gif">
         </a-assets>
@@ -95,7 +95,7 @@
 
 <!--====================================================== Section 4 ====================================================-->
         <!-- Camera Setup -->
-        <a-entity id="camera-rig" rotation="0 0 0">
+        <a-entity id="camera-rig" rotation="0 185.49705 0">
 <!--_____________________________________________________________________________________________________________________-->
 
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
@@ -117,15 +117,15 @@
 
 <!--====================================================== Section 5 ====================================================-->
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi1" position="5.71648 -0.86428 12.48434" rotation="-89.99963750135457 -170.06705162411635 0" scale="2 2 2">
+        <a-entity id="tombol-navigasi1_HLMN1" position="10.83046 -0.9492 14.6032" rotation="-89.99963750135457 -155.10884246663593 0" scale="2 2 2">
 
-            <a-entity id="panah-navigasi1" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+            <a-entity id="panah-navigasi1_HLMN1" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 1_TitikSatu.html" scale="2 2 2" position="4.55 -0.2 -1.23" rotation="8.777140463609081 -4.832899001928493 160.44278">
+                target_url: 2_TitikDua.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
             </a-entity>
 
-            <a-text id="text-navigasi1" font="kelsonsans" width="6" align="center"
-                value="Ikuti Panah \n Untuk Melanjutkan" position="4.08 -1.49 -1.48" rotation="26.06728784727193 -13.788802297618393 -25.93378868100645"
+            <a-text id="text-navigasi1_HLMN1" font="kelsonsans" width="6" align="center"
+                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
                 color="#fff">
             </a-text>
         </a-entity>
