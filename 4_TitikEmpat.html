@@ -56,7 +56,7 @@
                     
                     'Tentang Tour', 
                     
-                    'Selamat datang di Virtual Tour. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah. Selamat datang di Virtual Tour. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah.'
+                    'Anda sedang berada di halaman utama SMK/SMTI Pontianak. Disini anda dapat melihat gedung-gedung utama SMK/SMTI Pontianak seperti : \n 1. Gedung Layanan Publik \n 2. Gedung D \n 3. Gedung L \n 4. Musholla '
                     
                     )">
                 <i style="font-style: normal;">i</i>
@@ -75,7 +75,7 @@
             <div class="minimap-close" id="minimap-close" onclick="minimizeMap(event)">×</div>
             <div class="minimap-content">
                 <!-- Ganti src dengan referensi gambar peta yang sesuai dari folder assets/map -->
-                <img src="./assets/map/002depan musholla.png" alt="Minimap" onclick="maximizeMap(event)">
+                <img src="./assets/map/003halaman sekolah.png" alt="Minimap" onclick="maximizeMap(event)">
             </div>
         </div>
 <!--_____________________________________________________________________________________________________________________-->
@@ -139,6 +139,82 @@
 
         <!--- Paste Snippet Code Text Dibawah ini -->
 
+                <a-entity id="text-deskripsi1_HLMN4" position="-2.24814 9.97183 -17.47823" rotation="-29.91985606173159 -6.780382547578162 28.417560722898568" scale="2 2 2">
+
+            <!-- Dark background plane behind the text -->
+            <a-plane
+                position="4.08 -1.49 -1.49"
+                rotation="21.21 -20.45 -35.56"
+                width="2.8"
+                height="0.5"
+                color="#111111"
+                opacity="0.75">
+            </a-plane>
+
+            <a-text id="komponen-text1_HLMN4" font="kelsonsans" width="6" align="center"
+                value="Musholla" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
+                color="#fff">
+            </a-text>
+
+        </a-entity>
+
+        <a-entity id="text-deskripsi2_HLMN4" position="-12.31335 12.54155 -0.41089" rotation="-24.052195281796827 54.247071085191216 29.19735628207162" scale="2 2 2">
+
+            <!-- Dark background plane behind the text -->
+            <a-plane
+                position="4.08 -1.49 -1.49"
+                rotation="21.21 -20.45 -35.56"
+                width="2.8"
+                height="0.5"
+                color="#111111"
+                opacity="0.75">
+            </a-plane>
+
+            <a-text id="komponen-text1_HLMN4" font="kelsonsans" width="6" align="center"
+                value="Gedung D" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
+                color="#fff">
+            </a-text>
+
+        </a-entity>
+
+        <a-entity id="text-deskripsi3_HLMN4" position="21.27278 10.98842 -8.01455" rotation="-33.448130164147194 -122.6135411157913 31.843848337780898" scale="2 2 2">
+
+            <!-- Dark background plane behind the text -->
+            <a-plane
+                position="4.08 -1.49 -1.49"
+                rotation="21.21 -20.45 -35.56"
+                width="2.8"
+                height="0.5"
+                color="#111111"
+                opacity="0.75">
+            </a-plane>
+
+            <a-text id="komponen-text1_HLMN4" font="kelsonsans" width="6" align="center"
+                value="Gedung L" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
+                color="#fff">
+            </a-text>
+
+        </a-entity>
+
+        <a-entity id="text-deskripsi4_HLMN4" position="-3.29285 9.97896 15.45514" rotation="-15.625132031012681 147.88728241680704 34.434763487362474" scale="2 2 2">
+
+            <!-- Dark background plane behind the text -->
+            <a-plane
+                id="text-deskripsi4_HLMN4_plane" scale="1.1409 1 1"
+                position="4.08 -1.49 -1.49"
+                rotation="21.21 -20.45 -35.56"
+                width="2.8"
+                height="0.5"
+                color="#111111"
+                opacity="0.75">
+            </a-plane>
+
+            <a-text id="komponen-text1_HLMN4" font="kelsonsans" width="6" align="center"
+                value="Gedung Layanan Publik" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
+                color="#fff">
+            </a-text>
+
+        </a-entity>
 
 
 <!--_____________________________________________________________________________________________________________________-->
