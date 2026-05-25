@@ -1,3 +1,3 @@
-# Belajar VR Tour
+# Preview VR Tour
 
-Template Pembuatan Aplikasi Web VR Tour
+Preview Aplikasi Web VR Tour
