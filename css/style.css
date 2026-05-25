@@ -1,0 +1,364 @@
+/* Variables for consistent design */
+:root {
+    --primary-color: #00bcd4;
+    --secondary-color: #ff4081;
+    --bg-dark: rgba(20, 20, 25, 0.85);
+    --text-white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* UI Overlay Container */
+#ui-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through to A-Frame by default */
+    z-index: 10;
+}
+
+#ui-overlay > * {
+    pointer-events: auto; /* Re-enable clicks for UI elements */
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.room-info h1 {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Navigation Controls */
+.nav-controls {
+    position: absolute;
+    top: 20px !important;
+    right: 40px !important;
+    bottom: auto !important;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Info Panel */
+.info-panel {
+    position: absolute;
+    bottom: 90px;
+    right: 30px;
+    left: auto;
+    width: 380px;
+    padding: 25px;
+    background: var(--bg-dark);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    color: white;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.info-panel.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.info-panel h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.info-panel p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #eee;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #050505;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Custom Cursor inside A-Frame (standardizing) */
+.a-canvas-container {
+    cursor: none !important;
+}
+
+/* Minimap */
+.minimap-container {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: auto;
+    padding: 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    background: var(--bg-dark);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    z-index: 10;
+    transition: all 0.4s ease;
+}
+
+.minimap-content {
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.minimap-container img {
+    width: 280px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+
+.minimap-close {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 12;
+    transition: all 0.2s ease;
+}
+
+.minimap-close:hover {
+    transform: scale(1.1);
+    background: #ff1565;
+}
+
+/* Maximized State */
+.minimap-container.maximized {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    max-width: 90vw;
+    max-height: 90vh;
+    bottom: auto;
+    right: auto;
+    padding: 15px;
+    z-index: 11;
+}
+
+.minimap-container.maximized .minimap-close {
+    display: flex;
+}
+
+.minimap-container.maximized img {
+    width: auto;
+    height: auto;
+    max-width: calc(90vw - 30px);
+    max-height: calc(90vh - 30px);
+    object-fit: contain;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        padding: 15px 20px;
+    }
+    
+    .room-info h1 {
+        font-size: 18px;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    /* Nav Controls */
+    .nav-controls {
+        top: 15px !important;
+        right: 20px !important;
+        gap: 10px;
+    }
+
+    .btn-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Info Panel */
+    .info-panel {
+        width: 300px;
+        right: 20px;
+        left: auto;
+        top: auto;
+        bottom: 80px;
+        padding: 20px;
+        transform: translateY(50px);
+    }
+    
+    .info-panel.visible {
+        transform: translateY(0);
+    }
+
+    .info-panel h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .info-panel p {
+        font-size: 14px;
+    }
+
+    /* Minimap */
+    .minimap-container {
+        bottom: 20px;
+        left: 20px;
+        right: auto;
+        padding: 8px;
+        border-radius: 12px;
+    }
+
+    .minimap-container img {
+        width: 140px;
+        border-radius: 6px;
+    }
+
+    /* Aturan maximized dihapus karena fit-content sudah cukup otomatis */
+}
+
+/* For very small heights (Landscape mobile) */
+@media (max-height: 500px) {
+    .minimap-container {
+        bottom: 15px;
+        left: 20px;
+        right: auto;
+        padding: 6px;
+    }
+    .minimap-container img {
+        width: 80px;
+    }
+    
+    .info-panel {
+        top: auto;
+        bottom: 70px;
+        right: 20px;
+        left: auto;
+        width: 300px;
+        padding: 15px;
+    }
+    
+    header {
+        padding: 10px 15px;
+    }
+    .room-info h1 {
+        font-size: 16px;
+    }
+}
