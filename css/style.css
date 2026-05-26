@@ -119,6 +119,7 @@ header {
     border-radius: 15px;
     border: 1px solid var(--glass-border);
     color: white;
+    z-index: 20;
     transform: translateY(100px);
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -196,6 +197,21 @@ header {
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     z-index: 10;
     transition: all 0.4s ease;
+}
+
+.minimap-tutor {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.minimap-container.maximized .minimap-tutor {
+    display: none;
 }
 
 .minimap-content {
@@ -295,11 +311,11 @@ header {
 
     /* Info Panel */
     .info-panel {
-        width: 300px;
+        width: calc(100% - 40px);
+        left: 20px;
         right: 20px;
-        left: auto;
         top: auto;
-        bottom: 80px;
+        bottom: 180px;
         padding: 20px;
         transform: translateY(50px);
     }
@@ -326,6 +342,11 @@ header {
         border-radius: 12px;
     }
 
+    .minimap-tutor {
+        font-size: 9px;
+        margin-bottom: 6px;
+    }
+
     .minimap-container img {
         width: 140px;
         border-radius: 6px;
@@ -341,6 +362,9 @@ header {
         left: 20px;
         right: auto;
         padding: 6px;
+    }
+    .minimap-tutor {
+        display: none;
     }
     .minimap-container img {
         width: 80px;
