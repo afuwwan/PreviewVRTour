@@ -5,14 +5,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const loadingScreen = document.getElementById('loading-screen');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const startTourBtn = document.getElementById('start-tour-btn');
     const scene = document.querySelector('a-scene');
 
     // Hide loading screen when scene is loaded
     if (scene) {
         scene.addEventListener('loaded', () => {
             setTimeout(() => {
-                loadingScreen.classList.add('hidden');
+                if (welcomeScreen) {
+                    welcomeScreen.classList.add('visible');
+                    loadingScreen.classList.add('hidden');
+                } else {
+                    loadingScreen.classList.add('hidden');
+                }
             }, 1000); // Small delay for smoothness
+        });
+    }
+
+    // Start Tour button event
+    if (startTourBtn && welcomeScreen) {
+        startTourBtn.addEventListener('click', () => {
+            welcomeScreen.classList.remove('visible');
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+            }, 800); // Wait for transition
         });
     }
 
