@@ -622,3 +622,284 @@ header {
         font-size: 13px;
     }
 }
+
+/* Landing Page Styles */
+body.landing-page {
+    background: linear-gradient(rgba(10, 10, 12, 0.65), rgba(10, 10, 12, 0.85)), url('../assets/panoramas/2_TitikDua.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Gateway Container & Reorganization */
+.gateway-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1000px;
+    z-index: 10;
+    gap: 30px;
+}
+
+.gateway-header {
+    text-align: center;
+    color: white;
+}
+
+.gateway-header h2 {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+}
+
+.gateway-header h1 {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ffffff, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.gateway-split {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+}
+
+.gateway-panel {
+    flex: 1;
+    position: relative;
+    text-decoration: none;
+    background: rgba(20, 20, 25, 0.55);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 50px 30px;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.panel-blur-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(0, 188, 212, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.gateway-panel.right-panel .panel-blur-bg {
+    background: radial-gradient(circle at center, rgba(255, 64, 129, 0.1) 0%, transparent 70%);
+}
+
+.panel-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.panel-icon {
+    font-size: 50px;
+    margin-bottom: 5px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gateway-panel h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.gateway-panel p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.5;
+    height: 42px; /* Fix height to align button */
+}
+
+.panel-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.gateway-panel:hover {
+    transform: translateY(-5px);
+    background: rgba(20, 20, 25, 0.75);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 45px rgba(0, 188, 212, 0.25);
+}
+
+.gateway-panel.right-panel:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 20px 45px rgba(255, 64, 129, 0.25);
+}
+
+.gateway-panel:hover .panel-blur-bg {
+    opacity: 1;
+}
+
+.gateway-panel:hover .panel-icon {
+    transform: scale(1.15) translateY(-5px);
+}
+
+.gateway-panel:hover .panel-btn {
+    background: var(--primary-color);
+    color: #0c0c0e;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    border-color: transparent;
+}
+
+.gateway-panel.right-panel:hover .panel-btn {
+    background: var(--secondary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+    border-color: transparent;
+}
+
+/* Custom Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 12, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background: rgba(20, 20, 25, 0.85);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    padding: 35px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.visible .modal-card {
+    transform: translateY(0);
+}
+
+.modal-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.modal-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.modal-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.modal-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-btn:hover {
+    background: white;
+    color: #0c0c0e;
+}
+
+/* Mobile responsive for Gateway screen */
+@media (max-width: 768px) {
+    .gateway-container {
+        width: 92%;
+        gap: 20px;
+    }
+
+    .gateway-header h1 {
+        font-size: 28px;
+    }
+
+    .gateway-split {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .gateway-panel {
+        padding: 30px 20px;
+    }
+
+    .gateway-panel h2 {
+        font-size: 18px;
+    }
+
+    .gateway-panel p {
+        font-size: 13px;
+        height: auto;
+    }
+}
